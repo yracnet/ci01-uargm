@@ -7,15 +7,15 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "test": "vitest run --coverage"
+    "test": "vitest run --coverage",
+    "deploy": "gh-pages -d tests-output -b gh-pages"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
     "dotenv-local": "^1.0.0",
     "express": "^4.19.2",
     "express-mongoose-ra-json-server": "^0.2.2",
-    "mongoose": "^8.4.3",
-    "ra-data-json-server": "^5.0.1"
+    "mongoose": "^8.4.3"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
@@ -29,8 +29,10 @@
     "@vitejs/plugin-react-swc": "^3.5.0",
     "@vitest/coverage-v8": "^1.6.0",
     "@vitest/ui": "^1.6.0",
+    "gh-pages": "^6.1.1",
     "jsdom": "^24.1.0",
     "ra-data-fakerest": "^5.0.1",
+    "ra-data-json-server": "^5.0.1",
     "react": "^18.3.1",
     "react-admin": "^5.0.1",
     "react-dom": "^18.3.1",
