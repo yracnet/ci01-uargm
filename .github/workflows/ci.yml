@@ -20,6 +20,7 @@ jobs:
       IMAGE_PLATFORM: "linux/amd64,linux/arm64"
       DEPLOY_ID: srv-cpp5gmlds78s73e21090
       DEPLOY_KEY: ${{ secrets.RENDER_API_KEY }}
+      MONGO_DB_URL: ${{ secrets.MONGO_DB_URL }}
 
     steps:
       - name: Checkout Repository

@@ -4,6 +4,7 @@ import mongoose, { CompileModelOptions, Schema } from "mongoose";
 
 const { MONGO_DB_URL } = loadEnv({
   envPrefix: ["API_", "MONGO_"],
+  envInitial: <any>process.env,
 });
 
 mongoose.connect(MONGO_DB_URL, {
