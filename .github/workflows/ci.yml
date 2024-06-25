@@ -1,0 +1,101 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-22.04
+
+    env:
+      DOCKERHUB_USER: yracnet
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+      IMAGE_URL: "yracnet/ci01-uagrm:${{ github.run_number }}"
+      IMAGE_URL_LATEST: "yracnet/ci01-uagrm:latest"
+      IMAGE_PLATFORM: "linux/amd64,linux/arm64"
+      DEPLOY_ID: srv-cpp5gmlds78s73e21090
+      DEPLOY_KEY: ${{ secrets.RENDER_API_KEY }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      - name: Set Build Info
+        run: |
+          echo "RUN_NUMBER=${GITHUB_RUN_NUMBER}" >> $GITHUB_ENV
+          echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
+          echo "COMMIT_ID=${GITHUB_SHA}" >> $GITHUB_ENV
+          echo "BUILD_DATE=$(date -u '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Run Tests
+        run: yarn test
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./tests-output
+          publish_branch: gh-pages
+          user_name: Willyams Yujra
+          user_email: yracnet@gmail.com
+
+      - name: Run Build
+        run: yarn build
+
+      - name: Save Build
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: dist
+
+      # - name: Save Coverage Test
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: coverage
+      #     path: tests-output
+
+      # - name: Upload File
+      #   uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      #   with:
+      #     server: us-east-1.sftpcloud.io
+      #     username: 9122c0e7880e427fa2fb582c96358759
+      #     password: V18eYHWakQtypWhI8ZBFDaRGHW85664R
+      #     local-dir: ./dist/
+      #     server-dir: ./build/
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log into Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ env.DOCKERHUB_USER }}
+          password: ${{ env.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push Docker Image
+        run: docker buildx build --platform ${{ env.IMAGE_PLATFORM }} -t ${{ env.IMAGE_URL }} -t ${{ env.IMAGE_URL_LATEST }} --push .
+
+      # - name: Deploy to Render
+      #   run: |
+      #     curl --request POST \
+      #     --url https://api.render.com/v1/services/${{ env.DEPLOY_ID }}/deploys \
+      #     --header "accept: application/json" \
+      #     --header "authorization: Bearer ${{ env.DEPLOY_KEY }}" \
+      #     --header "content-type: application/json" \
+      #     --data "{ \"imageUrl\": \"docker.io/${{ env.IMAGE_URL }}\" }"
+
+      - name: Finalize Job
+        run: echo "Pipeline completed successfully"
