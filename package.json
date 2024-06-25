@@ -29,7 +29,6 @@
     "@vitejs/plugin-react-swc": "^3.5.0",
     "@vitest/coverage-v8": "^1.6.0",
     "@vitest/ui": "^1.6.0",
-    "gh-pages": "^6.1.1",
     "jsdom": "^24.1.0",
     "ra-data-fakerest": "^5.0.1",
     "ra-data-json-server": "^5.0.1",

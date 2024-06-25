@@ -15,10 +15,6 @@ import {
   SelectField,
   SelectInput,
   Filter,
-  CreateProps,
-  ListProps,
-  EditProps,
-  ShowProps,
 } from "react-admin";
 
 const tipoDocumentos = [
