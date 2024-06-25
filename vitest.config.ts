@@ -7,8 +7,8 @@ export default mergeConfig(
   defineConfig({
     test: {
       environment: "jsdom",
-      outputFile: "tests-output/index.html",
-      reporters: ["html", "verbose"],
+      outputFile: "target/index.html",
+      reporters: "html",
       include: [
         // Include
         "tests/**/*.test.ts",
@@ -21,8 +21,10 @@ export default mergeConfig(
         "src/client/App.tsx",
       ],
       coverage: {
-        reporter: ["text", "json", "html"],
-        reportsDirectory: "tests-output/coverage",
+        clean: true,
+        reporter: "html",
+        reportOnFailure: true,
+        reportsDirectory: "target/coverage",
         include: [
           // Coverage
           "src/server",

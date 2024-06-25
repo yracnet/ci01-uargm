@@ -49,7 +49,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ env.GH_TOKEN }}
-          publish_dir: ./tests-output
+          publish_dir: ./target
           publish_branch: gh-pages
           user_name: Willyams Yujra
           user_email: yracnet@gmail.com
