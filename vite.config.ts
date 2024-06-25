@@ -8,8 +8,9 @@ const pluginHtml = () => {
     transformIndexHtml(html: string) {
       ["RUN_NUMBER", "BRANCH_NAME", "COMMIT_ID", "BUILD_DATE"].forEach(
         (key) => {
-          const value = process.env[key] || `¿¿${key}??`;
-          html = html.replace(`__${key}__`, value);
+          const keyValue = process.env[key] || `¿¿${key}??`;
+          const keyName = new RegExp(`__${key}__`, "g");
+          html = html.replace(keyName, keyValue);
         }
       );
       return html;
