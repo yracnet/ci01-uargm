@@ -4,7 +4,7 @@
 
 **CI-Green** es un proyecto Node.js con APIs para gestionar clientes, empleados y productos.
 
-## entorno
+## Entorno
 
 - NODE 20
 - YARN
@@ -20,6 +20,20 @@ cd ci-green
 yarn install
 ```
 
+## Configuracion
+
+Crear los archivo `.env.xxx` en la raiz del proyecto
+
+```bash
+#.env.test
+MONGO_DB_URL=mongodb+srv://<<USER>>:<<SECRET>>@mongodb.net/green
+```
+
+```bash
+#in the file: .env.test
+MONGO_DB_URL=mongodb+srv://<<USER>>:<<SECRET>>@mongodb.net/green-test
+```
+
 ## Execucion
 
 ```bash
@@ -31,20 +45,6 @@ yarn build
 
 # Ejecutar pruebas con cobertura
 yarn test
-```
-
-## Config
-
-Crear los archivo `.env.xxx` en la raiz del proyecto
-
-```bash
-#.env.test
-MONGO_DB_URL=mongodb+srv://<<USER>>:<<SECRET>>.6zaqjod.mongodb.net/green
-```
-
-```bash
-#in the file: .env.test
-MONGO_DB_URL=mongodb+srv://<<USER>>:<<SECRET>>.6zaqjod.mongodb.net/green-test
 ```
 
 ## APIs
@@ -145,13 +145,17 @@ MONGO_DB_URL=mongodb+srv://<<USER>>:<<SECRET>>.6zaqjod.mongodb.net/green-test
 - **DELETE** `/api/productos/:id`
   Elimina un producto especificado por ID.
 
-## Deploy
+## Despliegue
+
+El branch `release` es monitoreado por el Pile ci.yml para su despliegue, la URL de despliegue es:
 
 > https://ci01-uagrm-latest.onrender.com/
 
 ## Test Report
 
-Result Test
+Los resultados de las Pruebas Unitarioas y de covertura, se publican en GitHub-Pages
+
+## Reporte de Prubas
 
 > https://yracnet.github.io/ci01-uargm/
 
