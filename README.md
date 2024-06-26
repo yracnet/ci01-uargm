@@ -33,6 +33,20 @@ yarn build
 yarn test
 ```
 
+## Config
+
+Crear los archivo `.env.xxx` en la raiz del proyecto
+
+```bash
+#.env.test
+MONGO_DB_URL=mongodb+srv://<<USER>>:<<SECRET>>.6zaqjod.mongodb.net/green
+```
+
+```bash
+#in the file: .env.test
+MONGO_DB_URL=mongodb+srv://<<USER>>:<<SECRET>>.6zaqjod.mongodb.net/green-test
+```
+
 ## APIs
 
 ### Clientes
@@ -133,7 +147,17 @@ yarn test
 
 ## Deploy
 
-https://ci01-uagrm-latest.onrender.com/#/empleados
+> https://ci01-uagrm-latest.onrender.com/
+
+## Test Report
+
+Result Test
+
+> https://yracnet.github.io/ci01-uargm/
+
+Coverage
+
+> https://yracnet.github.io/ci01-uargm/coverage/
 
 ## Licencia
 
