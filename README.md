@@ -4,6 +4,11 @@
 
 **CI-Green** es un proyecto Node.js con APIs para gestionar clientes, empleados y productos.
 
+## entorno
+
+- NODE 20
+- YARN
+
 ## Instalación
 
 ```bash
