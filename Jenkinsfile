@@ -6,12 +6,15 @@ pipeline {
         PATH = "${NODEJS_HOME}/bin:${env.PATH}"
     }
 
-    options {
-        cleanWs()
-    }
-
     stages {
-        stage('Checkout') {
+
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+
+        stage('Checkout Project') {
             steps {
                 git branch: 'jenkins', url: 'https://github.com/yracnet/ci01-uargm.git'
             }
