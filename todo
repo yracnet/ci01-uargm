@@ -1,11 +1,39 @@
+CRISTHIAN
 > Crear 2 Theme para React Admin
+    features/T01-rojo
+    > Theme ROJO <<GITFLOW AHORA>>
+    features/T02-verde
+    > Theme VERDE <<PARA LA DEFENSA>>
 
-    > Theme ROJO
-    > Theme AZUL <<PARA LA DEFENSA>>
 
 > Especificar pruebas
-
+    IVAN: Aumentar y especificar Pruebas
+    > ci01-uargm\tests\client    
+        features/T03-ivan
+        > tests\client\ui.empleados.test.tsx  <<PARA GITFLOW>>    
+        features/T04-ivan
+        > tests\client\ui.clientes.test.tsx <<PARA LA DEFENSA>>
+    
+    RIMBERTH: Aumentar y especificar Pruebas
     > ci01-uargm\tests\server
-    > ci01-uargm\tests\server\api.clientes.test.ts  <<PARA GITFLOW>>
-    > ci01-uargm\tests\server\api.empleados.test.ts <<PARA GITFLOW>>
-    > ci01-uargm\tests\server\api.productos.test.ts <<PARA LA DEFENSA>>
+        features/T05-rimberth
+        > ci01-uargm\tests\server\api.empleados.test.ts  <<PARA GITFLOW>>    
+        features/T06-rimberth
+        > ci01-uargm\tests\server\api.productos.test.ts <<PARA LA DEFENSA>>
+
+
+Para hoy, madar 2PR cada uno
+Pull Request
+Development TO Release
+=============
+PARA GITFLOW: MERGE AUTOMATICO  
+    features/T01-rojo
+    features/T03-ivan
+    features/T05-rimberth
+
+
+PARA LA DEFENSA:  MERGE EN LA PRESENTACION
+    features/T02-verde
+    features/T04-ivan
+    features/T06-rimberth
+
