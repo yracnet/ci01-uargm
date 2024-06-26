@@ -10,7 +10,7 @@ pipeline {
 
         stage('Clean Workspace') {
             steps {
-                cleanWs()
+                sh 'rm -rf'
             }
         }
 
@@ -22,17 +22,13 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                ansiColor('xterm') {
-                    sh 'yarn install'
-                }
+                sh 'yarn install'
             }
         }
 
         stage('Run Tests') {
             steps {
-                ansiColor('xterm') {
-                    sh 'yarn test'
-                }
+                sh 'yarn test'
             }
         }
     }
