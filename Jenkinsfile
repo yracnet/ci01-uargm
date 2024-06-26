@@ -6,6 +6,10 @@ pipeline {
         PATH = "${NODEJS_HOME}/bin:${env.PATH}"
     }
 
+    options {
+        cleanWs()
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -15,13 +19,17 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'yarn install'
+                ansiColor('xterm') {
+                    sh 'yarn install'
+                }
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'yarn test'
+                ansiColor('xterm') {
+                    sh 'yarn test'
+                }
             }
         }
     }
