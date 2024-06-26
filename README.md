@@ -126,6 +126,10 @@ yarn test
 - **DELETE** `/api/productos/:id`
   Elimina un producto especificado por ID.
 
+## Deploy
+
+https://ci01-uagrm-latest.onrender.com/#/empleados
+
 ## Licencia
 
 Este proyecto está licenciado bajo la Licencia MIT
