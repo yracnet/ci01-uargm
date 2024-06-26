@@ -1,0 +1,11 @@
+> Crear 2 Theme para React Admin
+
+    > Theme ROJO
+    > Theme AZUL <<PARA LA DEFENSA>>
+
+> Especificar pruebas
+
+    > ci01-uargm\tests\server
+    > ci01-uargm\tests\server\api.clientes.test.ts  <<PARA GITFLOW>>
+    > ci01-uargm\tests\server\api.empleados.test.ts <<PARA GITFLOW>>
+    > ci01-uargm\tests\server\api.productos.test.ts <<PARA LA DEFENSA>>
