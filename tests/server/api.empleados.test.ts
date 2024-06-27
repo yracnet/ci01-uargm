@@ -30,7 +30,9 @@ describe("API Empleados", () => {
       .set("Authorization", Token)
       .expect("Content-Type", /json/)
       .expect(200);
+
     expect(response.body._doc).toMatchObject(newEmpleado);
+
   });
 
   test("Eliminar Empleado", async () => {
@@ -40,7 +42,9 @@ describe("API Empleados", () => {
       .set("Authorization", Token)
       .expect("Content-Type", /json/)
       .expect(200);
+
     expect(response.body._doc).toMatchObject(newEmpleado);
+    
   });
 
   test("Buscar Empleado por email", async () => {
