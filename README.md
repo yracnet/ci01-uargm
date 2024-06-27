@@ -4,6 +4,11 @@
 
 **CI-Green** es un proyecto Node.js con APIs para gestionar clientes, empleados y productos.
 
+## Entorno
+
+- NODE 20
+- YARN
+
 ## Instalación
 
 ```bash
@@ -13,6 +18,23 @@ cd ci-green
 
 # Instalar dependencias
 yarn install
+
+# Color Rojo
+yarn add @material-ui/core @material-ui/styles
+```
+
+## Configuracion
+
+Crear los archivo `.env.xxx` en la raiz del proyecto
+
+```bash
+#.env.test
+MONGO_DB_URL=mongodb+srv://<<USER>>:<<SECRET>>@mongodb.net/green
+```
+
+```bash
+#in the file: .env.test
+MONGO_DB_URL=mongodb+srv://<<USER>>:<<SECRET>>@mongodb.net/green-test
 ```
 
 ## Execucion
@@ -125,6 +147,30 @@ yarn test
 
 - **DELETE** `/api/productos/:id`
   Elimina un producto especificado por ID.
+
+## Despliegue
+
+El branch `release` es monitoreado por el Pile ci.yml para su despliegue, la URL de despliegue es:
+
+> https://ci01-uagrm-latest.onrender.com/
+
+## Test Report
+
+Los resultados de las Pruebas Unitarioas y de covertura, se publican en GitHub-Pages
+
+## Reporte de Prubas
+
+### Reporte
+
+> https://yracnet.github.io/ci01-uargm/
+
+### Coverage
+
+> https://yracnet.github.io/ci01-uargm/coverage/
+
+### Pruebas Estaticas
+
+> https://app.snyk.io/org/yracnet/projects?groupBy=targets&before&after&searchQuery=&sortBy=highest+severity&filters[Show]=&filters[Integrations]=&filters[CollectionIds]=
 
 ## Licencia
 

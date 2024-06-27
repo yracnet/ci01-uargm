@@ -23,6 +23,7 @@ describe("API Empleados", () => {
       .expect(200);
   });
 
+  let currentID = "";
   test("Insertar Empleado", async () => {
     const response = await appTestServer
       .post("/api/empleados")
@@ -30,7 +31,10 @@ describe("API Empleados", () => {
       .set("Authorization", Token)
       .expect("Content-Type", /json/)
       .expect(200);
+
     expect(response.body._doc).toMatchObject(newEmpleado);
+    currentID = response.body._doc._id;
+    console.log("CurrentID>>>", currentID);
   });
 
   test("Buscar Empleado por email", async () => {
@@ -49,5 +53,16 @@ describe("API Empleados", () => {
     // );
     // expect(foundCliente).toBeDefined();
     // expect(foundCliente).toMatchObject(newCliente);
+  });
+
+  test("Eliminar Empleado", async () => {
+    const response = await appTestServer
+      .delete(`/api/empleados/${currentID}`)
+      .send(newEmpleado)
+      .set("Authorization", Token)
+      .expect("Content-Type", /json/)
+      .expect(200);
+
+    expect(response.body._doc).toMatchObject(newEmpleado);
   });
 });
