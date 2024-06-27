@@ -18,7 +18,6 @@ import {
 } from "react-admin";
 import { AppBar, Toolbar, Typography, makeStyles } from "@material-ui/core";
 
-
 export const categorias = [
   { id: "electronica", name: "Electrónica" },
   { id: "ropa", name: "Ropa" },
@@ -31,7 +30,7 @@ export const proveedores = [
   { id: "samsung", name: "Samsung" },
 ];
 // Estilos personalizados para el AppBar
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   appBar: {
     backgroundColor: "#ff0000", // Color de fondo rojo
   },
@@ -55,37 +54,36 @@ const CustomAppBar: React.FC = () => {
   );
 };
 
-
 export const ProductoList: React.FC<any> = (props) => (
   <>
     <CustomAppBar /> {/* Incluye aquí tu AppBar personalizado */}
-  <List {...props}>
-    <Datagrid>
-      <TextField source="nombre" />
-      <TextField source="descripcion" />
-      <NumberField source="precio" />
-      <NumberField source="stock" />
-      <SelectField source="categoria" choices={categorias} />
-      <SelectField source="proveedor" choices={proveedores} />
-      <EditButton />
-      <DeleteButton />
-    </Datagrid>
-  </List>
+    <List {...props}>
+      <Datagrid>
+        <TextField source="nombre" />
+        <TextField source="descripcion" />
+        <NumberField source="precio" />
+        <NumberField source="stock" />
+        <SelectField source="categoria" choices={categorias} />
+        <SelectField source="proveedor" choices={proveedores} />
+        <EditButton />
+        <DeleteButton />
+      </Datagrid>
+    </List>
   </>
 );
 export const ProductoCreate: React.FC<any> = (props) => (
   <>
     <CustomAppBar />
-  <Create {...props}>
-    <SimpleForm>
-      <TextInput source="nombre" />
-      <TextInput source="descripcion" />
-      <NumberInput source="precio" />
-      <NumberInput source="stock" />
-      <SelectInput source="categoria" choices={categorias} />
-      <SelectInput source="proveedor" choices={proveedores} />
-    </SimpleForm>
-  </Create>
+    <Create {...props}>
+      <SimpleForm>
+        <TextInput source="nombre" />
+        <TextInput source="descripcion" />
+        <NumberInput source="precio" />
+        <NumberInput source="stock" />
+        <SelectInput source="categoria" choices={categorias} />
+        <SelectInput source="proveedor" choices={proveedores} />
+      </SimpleForm>
+    </Create>
   </>
 );
 
@@ -93,15 +91,15 @@ export const ProductoEdit: React.FC<any> = (props) => (
   <>
     <CustomAppBar />
     <div className="ProductoEdit">
-  <Edit {...props}>
-    <SimpleForm>
-      <TextInput source="nombre" />
-      <TextInput source="descripcion" />
-      <NumberInput source="precio" />
-      <NumberInput source="stock" />
-      <SelectInput source="categoria" choices={categorias} />
-      <SelectInput source="proveedor" choices={proveedores} />
-    </SimpleForm>
+      <Edit {...props}>
+        <SimpleForm>
+          <TextInput source="nombre" />
+          <TextInput source="descripcion" />
+          <NumberInput source="precio" />
+          <NumberInput source="stock" />
+          <SelectInput source="categoria" choices={categorias} />
+          <SelectInput source="proveedor" choices={proveedores} />
+        </SimpleForm>
       </Edit>
     </div>
   </>
@@ -109,15 +107,15 @@ export const ProductoEdit: React.FC<any> = (props) => (
 export const ProductoShow: React.FC<any> = (props) => (
   <>
     <CustomAppBar />
-  <Show {...props}>
-    <SimpleShowLayout>
-      <TextField source="nombre" />
-      <TextField source="descripcion" />
-      <NumberField source="precio" />
-      <NumberField source="stock" />
-      <SelectField source="categoria" choices={categorias} />
-      <SelectField source="proveedor" choices={proveedores} />
-    </SimpleShowLayout>
-  </Show>
+    <Show {...props}>
+      <SimpleShowLayout>
+        <TextField source="nombre" />
+        <TextField source="descripcion" />
+        <NumberField source="precio" />
+        <NumberField source="stock" />
+        <SelectField source="categoria" choices={categorias} />
+        <SelectField source="proveedor" choices={proveedores} />
+      </SimpleShowLayout>
+    </Show>
   </>
 );

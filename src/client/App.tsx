@@ -1,4 +1,3 @@
-import React from "react";
 import { Admin, DataProvider, Resource } from "react-admin";
 import { ThemeProvider } from "@material-ui/core/styles";
 import {
