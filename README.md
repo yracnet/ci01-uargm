@@ -160,11 +160,17 @@ Los resultados de las Pruebas Unitarioas y de covertura, se publican en GitHub-P
 
 ## Reporte de Prubas
 
+### Reporte
+
 > https://yracnet.github.io/ci01-uargm/
 
-Coverage
+### Coverage
 
 > https://yracnet.github.io/ci01-uargm/coverage/
+
+### Pruebas Estaticas
+
+> https://app.snyk.io/org/yracnet/projects?groupBy=targets&before&after&searchQuery=&sortBy=highest+severity&filters[Show]=&filters[Integrations]=&filters[CollectionIds]=
 
 ## Licencia
 
