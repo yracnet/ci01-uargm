@@ -18,6 +18,9 @@ cd ci-green
 
 # Instalar dependencias
 yarn install
+
+# Color Rojo
+yarn add @material-ui/core @material-ui/styles
 ```
 
 ## Configuracion
