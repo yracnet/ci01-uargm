@@ -31,7 +31,21 @@ describe("API Productos", () => {
       .set("Authorization", Token)
       .expect("Content-Type", /json/)
       .expect(200);
+
     expect(response.body._doc).toMatchObject(newProducto);
+
+  });
+
+  test("Eliminar Producto", async () => {
+    const response = await appTestServer
+      .delete(`/api/productos/?nombre=${newProducto.nombre}`)
+      .send(newProducto)
+      .set("Authorization", Token)
+      .expect("Content-Type", /json/)
+      .expect(200);
+      
+    expect(response.body._doc).toMatchObject(newProducto);
+
   });
 
   test("Buscar Producto por nombre", async () => {
