@@ -30,7 +30,21 @@ describe("API Empleados", () => {
       .set("Authorization", Token)
       .expect("Content-Type", /json/)
       .expect(200);
+
     expect(response.body._doc).toMatchObject(newEmpleado);
+
+  });
+
+  test("Eliminar Empleado", async () => {
+    const response = await appTestServer
+      .delete(`/api/empleados?nombre=${newEmpleado.nombre}`)
+      .send(newEmpleado)
+      .set("Authorization", Token)
+      .expect("Content-Type", /json/)
+      .expect(200);
+
+    expect(response.body._doc).toMatchObject(newEmpleado);
+    
   });
 
   test("Buscar Empleado por email", async () => {

@@ -16,7 +16,8 @@
     "dotenv": "^16.4.5",
     "dotenv-local": "^1.0.0",
     "express": "^4.19.2",
-    "express-mongoose-ra-json-server": "^0.2.2"
+    "express-mongoose-ra-json-server": "^0.2.2",
+    "yarn": "^1.22.22"
   },
   "resolutions": {
     "mongoose": "^8.4.3"
