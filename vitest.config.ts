@@ -19,10 +19,11 @@ export default mergeConfig(
         //"tests/server",
         "tests-output/**/*.*",
         "src/client/App.tsx",
+        "src/client/theme.ts",
       ],
       coverage: {
         clean: true,
-        reporter: "html",
+        //reporter: "html",
         reportOnFailure: true,
         reportsDirectory: "target/coverage",
         include: [
@@ -33,6 +34,7 @@ export default mergeConfig(
         exclude: [
           // Not Coverage
           "src/client/*.tsx",
+          "src/client/*.ts",
         ],
       },
     },

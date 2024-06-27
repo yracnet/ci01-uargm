@@ -24,6 +24,7 @@ describe("API Productos", () => {
       .expect(200);
   });
 
+  let currentID = "";
   test("Insertar Producto", async () => {
     const response = await appTestServer
       .post("/api/productos")
@@ -31,21 +32,9 @@ describe("API Productos", () => {
       .set("Authorization", Token)
       .expect("Content-Type", /json/)
       .expect(200);
-
     expect(response.body._doc).toMatchObject(newProducto);
-
-  });
-
-  test("Eliminar Producto", async () => {
-    const response = await appTestServer
-      .delete(`/api/productos/?nombre=${newProducto.nombre}`)
-      .send(newProducto)
-      .set("Authorization", Token)
-      .expect("Content-Type", /json/)
-      .expect(200);
-      
-    expect(response.body._doc).toMatchObject(newProducto);
-
+    currentID = response.body._doc._id;
+    console.log("CurrentID>>>", currentID);
   });
 
   test("Buscar Producto por nombre", async () => {
@@ -64,5 +53,15 @@ describe("API Productos", () => {
     // );
     // expect(foundCliente).toBeDefined();
     // expect(foundCliente).toMatchObject(newCliente);
+  });
+
+  test("Eliminar Producto", async () => {
+    const response = await appTestServer
+      .delete(`/api/productos/${currentID}`)
+      .send(newProducto)
+      .set("Authorization", Token)
+      .expect("Content-Type", /json/)
+      .expect(200);
+    expect(response.body._doc).toMatchObject(newProducto);
   });
 });
