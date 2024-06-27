@@ -26,7 +26,7 @@ const tipoDocumentos = [
 ];
 
 // Estilos personalizados para el AppBar
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   appBar: {
     backgroundColor: "#ff0000", // Color de fondo rojo
   },
