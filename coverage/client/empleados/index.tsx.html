@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>136/136</span>
+                <span class='fraction'>134/134</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>136/136</span>
+                <span class='fraction'>134/134</span>
             </div>
         
             
@@ -197,10 +197,7 @@
 <a name='L132'></a><a href='#L132'>132</a>
 <a name='L133'></a><a href='#L133'>133</a>
 <a name='L134'></a><a href='#L134'>134</a>
-<a name='L135'></a><a href='#L135'>135</a>
-<a name='L136'></a><a href='#L136'>136</a>
-<a name='L137'></a><a href='#L137'>137</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L135'></a><a href='#L135'>135</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -260,7 +257,6 @@
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -358,7 +354,6 @@ import {
 } from "react-admin";
 import { AppBar, Toolbar, Typography, makeStyles } from "@material-ui/core";
 &nbsp;
-&nbsp;
 const departamentos = [
   { id: "IT", name: "IT" },
   { id: "Recursos Humanos", name: "Recursos Humanos" },
@@ -373,7 +368,7 @@ const cargos = [
   { id: "Diseñador", name: "Diseñador" },
 ];
 // Estilos personalizados para el AppBar
-const useStyles = makeStyles((theme) =&gt; ({
+const useStyles = makeStyles(() =&gt; ({
   appBar: {
     backgroundColor: "#ff0000", // Color de fondo rojo
   },
@@ -397,7 +392,6 @@ const CustomAppBar: React.FC = () =&gt; {
   );
 };
 &nbsp;
-&nbsp;
 const EmpleadoFilter: React.FC = (props) =&gt; (
   &lt;Filter {...props}&gt;
     &lt;TextInput label="Nombre" source="nombre" alwaysOn /&gt;
@@ -407,68 +401,68 @@ const EmpleadoFilter: React.FC = (props) =&gt; (
 export const EmpleadoList: React.FC&lt;any&gt; = (props) =&gt; (
   &lt;&gt;
     &lt;CustomAppBar /&gt; {/* Incluye aquí tu AppBar personalizado */}
-  &lt;List {...props} filters={&lt;EmpleadoFilter /&gt;} title="Lista de Empleados"&gt;
-    &lt;Datagrid&gt;
-      &lt;TextField source="nombre" /&gt;
-      &lt;SelectField source="cargo" choices={cargos} /&gt;
-      &lt;SelectField source="departamento" choices={departamentos} /&gt;
-      &lt;DateField source="fechaContratacion" /&gt;
-      &lt;NumberField source="salario" /&gt;
-      &lt;TextField source="email" /&gt;
-      &lt;TextField source="telefono" /&gt;
-      &lt;EditButton /&gt;
-      &lt;DeleteButton /&gt;
-    &lt;/Datagrid&gt;
-  &lt;/List&gt;
+    &lt;List {...props} filters={&lt;EmpleadoFilter /&gt;} title="Lista de Empleados"&gt;
+      &lt;Datagrid&gt;
+        &lt;TextField source="nombre" /&gt;
+        &lt;SelectField source="cargo" choices={cargos} /&gt;
+        &lt;SelectField source="departamento" choices={departamentos} /&gt;
+        &lt;DateField source="fechaContratacion" /&gt;
+        &lt;NumberField source="salario" /&gt;
+        &lt;TextField source="email" /&gt;
+        &lt;TextField source="telefono" /&gt;
+        &lt;EditButton /&gt;
+        &lt;DeleteButton /&gt;
+      &lt;/Datagrid&gt;
+    &lt;/List&gt;
   &lt;/&gt;
 );
 &nbsp;
 export const EmpleadoEdit: React.FC&lt;any&gt; = (props) =&gt; (
   &lt;&gt;
     &lt;CustomAppBar /&gt; {/* Incluye aquí tu AppBar personalizado */}
-  &lt;Edit {...props}&gt;
-    &lt;SimpleForm&gt;
-      &lt;TextInput source="nombre" /&gt;
-      &lt;SelectInput source="cargo" choices={cargos} /&gt;
-      &lt;SelectInput source="departamento" choices={departamentos} /&gt;
-      &lt;TextInput source="email" /&gt;
-      &lt;TextInput source="telefono" /&gt;
-    &lt;/SimpleForm&gt;
-  &lt;/Edit&gt;
+    &lt;Edit {...props}&gt;
+      &lt;SimpleForm&gt;
+        &lt;TextInput source="nombre" /&gt;
+        &lt;SelectInput source="cargo" choices={cargos} /&gt;
+        &lt;SelectInput source="departamento" choices={departamentos} /&gt;
+        &lt;TextInput source="email" /&gt;
+        &lt;TextInput source="telefono" /&gt;
+      &lt;/SimpleForm&gt;
+    &lt;/Edit&gt;
   &lt;/&gt;
 );
 &nbsp;
 export const EmpleadoCreate: React.FC&lt;any&gt; = (props) =&gt; (
   &lt;&gt;
     &lt;CustomAppBar /&gt;
-  &lt;Create {...props}&gt;
-    &lt;SimpleForm&gt;
-      &lt;TextInput source="nombre" /&gt;
-      &lt;SelectInput source="cargo" choices={cargos} /&gt;
-      &lt;SelectInput source="departamento" choices={departamentos} /&gt;
-      &lt;DateInput source="fechaContratacion" /&gt;
-      &lt;NumberInput source="salario" /&gt;
-      &lt;TextInput source="email" /&gt;
-      &lt;TextInput source="telefono" /&gt;
-    &lt;/SimpleForm&gt;
-  &lt;/Create&gt;
+    &lt;Create {...props}&gt;
+      &lt;SimpleForm&gt;
+        &lt;TextInput source="nombre" /&gt;
+        &lt;SelectInput source="cargo" choices={cargos} /&gt;
+        &lt;SelectInput source="departamento" choices={departamentos} /&gt;
+        &lt;DateInput source="fechaContratacion" /&gt;
+        &lt;NumberInput source="salario" /&gt;
+        &lt;TextInput source="email" /&gt;
+        &lt;TextInput source="telefono" /&gt;
+      &lt;/SimpleForm&gt;
+    &lt;/Create&gt;
   &lt;/&gt;
 );
 &nbsp;
 export const EmpleadoShow: React.FC&lt;any&gt; = (props) =&gt; (
   &lt;&gt;
     &lt;CustomAppBar /&gt;
-  &lt;Show {...props}&gt;
-    &lt;SimpleShowLayout&gt;
-      &lt;TextField source="nombre" /&gt;
-      &lt;SelectField source="cargo" choices={cargos} /&gt;
-      &lt;SelectField source="departamento" choices={departamentos} /&gt;
-      &lt;DateField source="fechaContratacion" /&gt;
-      &lt;NumberField source="salario" /&gt;
-      &lt;TextField source="email" /&gt;
-      &lt;TextField source="telefono" /&gt;
-    &lt;/SimpleShowLayout&gt;
-  &lt;/Show&gt;
+    &lt;Show {...props}&gt;
+      &lt;SimpleShowLayout&gt;
+        &lt;TextField source="nombre" /&gt;
+        &lt;SelectField source="cargo" choices={cargos} /&gt;
+        &lt;SelectField source="departamento" choices={departamentos} /&gt;
+        &lt;DateField source="fechaContratacion" /&gt;
+        &lt;NumberField source="salario" /&gt;
+        &lt;TextField source="email" /&gt;
+        &lt;TextField source="telefono" /&gt;
+      &lt;/SimpleShowLayout&gt;
+    &lt;/Show&gt;
   &lt;/&gt;
 );
 &nbsp;</pre></td></tr></table></pre>
@@ -478,7 +472,7 @@ export const EmpleadoShow: React.FC&lt;any&gt; = (props) =&gt; (
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-06-27T22:57:13.764Z
+                at 2024-06-27T23:04:14.504Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
